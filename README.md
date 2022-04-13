@@ -41,11 +41,11 @@ models.py:
 
         def __str__(self):
             return self.title
-
+```
 I then created a model form that includes any inputs the user needs to make. 
 
 forms.py:
-
+```cs
     from django import forms
     from .models import Cartoon
 
@@ -54,11 +54,11 @@ forms.py:
         class Meta:
             model = Cartoon
             fields = "__all__"
-
+```
 I made a template page for the form and then created a views function that renders all cartoons in the database. This page only displays the title and premier date of the cartoon in the database. I created another view function that allows User's to click on a cartoon's title to bring them to another page that displays the additional details of that cartoon.
 
 views.py:
-
+```cs
     def DisplayCartoons(request):
         cartoon_list = Cartoon.Cartoons.all().order_by("premier_date")
         context = {'cartoon_list': cartoon_list}
@@ -68,11 +68,11 @@ views.py:
         item = get_object_or_404(Cartoon, pk=pk)
         context = {'item': item}
         return render(request, 'Cartoons/Cartoons_details.html', context)
-
+```
 * Insert GIF of displaying cartoon list/details
 ## CRUD Functionality
 This view function saves the users new destination details to the database.
-
+```cs
     def CreateCartoon(request):
         form = CartoonForm(data=request.POST or None)
         if request.method=='POST':
@@ -81,9 +81,9 @@ This view function saves the users new destination details to the database.
                 return redirect('Cartoons_home')
         context = {'form': form}
         return render(request, "Cartoons/Cartoons_create.html", context)
-
+```
 This view function allows the user to edit/update a cartoons details.
-
+```cs
     def UpdateItem(request, pk):
         item = Cartoon.Cartoons.get(pk=pk)
         form = CartoonForm(request.POST or None, instance=item)
@@ -94,9 +94,9 @@ This view function allows the user to edit/update a cartoons details.
 
         context = {'item': item, 'form': form}
         return render(request, 'Cartoons/Cartoons_up_date.html', context)
-
+```
 This view function enables a user to delete trips from database.
-
+```cs
     def DeleteItem(request, pk):
         context = {}
         item = get_object_or_404(Cartoon, pk=pk)
@@ -106,13 +106,13 @@ This view function enables a user to delete trips from database.
             return redirect("Cartoons_list")
 
         return render(request, "Cartoons/Cartoons_delete.html", context)
-
+```
 * Insert GIF of creating/updating/delete
 ## Connect to API
 I created a new API template and rendered it with a view function. I then researched API documentation in order to connect the API and write a basic JSON response that allows users to search a word in the Oxford Dictionary and view it's definition. I added additional functionality that saves each word and definiton that was searched into the database. I then created a new  template for displaying the previously searched words/definitions.
 
 views.py:
-
+```cs
     def OxfordAPI(request):
         # set up api connection
         app_id='591386c7'
@@ -151,9 +151,9 @@ views.py:
         definition_list = Definition.Definitions.all().order_by("value")
         context = {'definition_list': definition_list}
         return render(request, 'Cartoons/Cartoons_definitions.html', context)
-
+```
 I then created a new object model class with a manager added to our models.py for saving words/definitions.
-
+```cs
 models.py:
 
     class Definition(models.Model):
@@ -164,7 +164,7 @@ models.py:
 
         def __str__(self):
             return self.value
-
+```
 
 * Insert GIF/image for oxford dictionary/display
 
@@ -176,7 +176,7 @@ animated series of all time. There are over 60 cartoons in the list and about 10
 specific page that named the top 10 cartoons. The titles were all under "h3" tags in the html code.
 
 views.py:
-
+```cs
     def CartoonScrape(request):
         # Create empty list.
         top_cartoons = []
@@ -195,13 +195,13 @@ views.py:
 
         context = {'top_cartoons': top_cartoons}
         return render(request, 'Cartoons/Cartoons_rankings.html', context)
-
+```
 * Insert screenshot of page
 
 The below code scrapes the ranking/rating/titles of the top 100 animated movies on rotten tomatoes website.
 
 views.py:
-
+```cs
     def MovieScrape(request):
         # Create empty list.
         top_movies = []
@@ -220,7 +220,7 @@ views.py:
 
         context = {'top_movies': top_movies}
         return render(request, 'Cartoons/Cartoons_movies.html', context)
-
+```
 * Insert screenshot of page
 
 ## Conclusion
