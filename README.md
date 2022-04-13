@@ -153,9 +153,9 @@ views.py:
         return render(request, 'Cartoons/Cartoons_definitions.html', context)
 ```
 I then created a new object model class with a manager added to our models.py for saving words/definitions.
-```cs
-models.py:
 
+models.py:
+```cs
     class Definition(models.Model):
         value = models.CharField(max_length=50)
         definition = models.TextField(max_length=100)
