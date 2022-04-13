@@ -18,7 +18,7 @@ To start, I created a new application within the Django framework. I created bas
 I created an object model class with a manager and defined it's attributes.
 
 models.py:
-
+```cs
     Genre_Choices = (
         ('comedy','Comedy'),
         ('anime', 'Anime'),
