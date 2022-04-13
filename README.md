@@ -63,7 +63,8 @@ views.py:
         cartoon_list = Cartoon.Cartoons.all().order_by("premier_date")
         context = {'cartoon_list': cartoon_list}
         return render(request, 'Cartoons/Cartoons_list.html', context)
-
+```
+```cs
     def DisplayDetails(request, pk):
         item = get_object_or_404(Cartoon, pk=pk)
         context = {'item': item}
@@ -145,8 +146,8 @@ views.py:
             return render(request, 'Cartoons/Cartoons_api.html', context)
         else:
             return render(request, 'Cartoons/Cartoons_api.html')
-
-
+```
+```cs
     def DisplayDefinitions(request):
         definition_list = Definition.Definitions.all().order_by("value")
         context = {'definition_list': definition_list}
