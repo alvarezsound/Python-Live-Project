@@ -12,7 +12,7 @@ After completing the Python course, I participated in a two week sprint. I was t
 ## Creating the Basic App
 To start, I created a new application within the Django framework. I created base and home templates and then added function to the views in order for a homepage with a navbar to render. I then registered my URL's and linked my application to the main project home page.
 
-* Insert home page screenshot
+![Home](/Images/Home.png)
 
 ## Creating the Model and Form
 I created an object model class with a manager and defined it's attributes.
