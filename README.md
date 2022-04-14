@@ -70,7 +70,7 @@ views.py:
         context = {'item': item}
         return render(request, 'Cartoons/Cartoons_details.html', context)
 ```
-![List Details](/GIFs/cartoons_list_details.gif)
+![List Details](/GIFs/list_details.gif)
 
 ## CRUD Functionality
 This view function saves the users new cartoons details to the database.
