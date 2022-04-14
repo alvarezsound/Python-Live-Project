@@ -202,7 +202,7 @@ views.py:
         context = {'top_cartoons': top_cartoons}
         return render(request, 'Cartoons/Cartoons_rankings.html', context)
 ```
-![Cartoon Ranking](/Images/Rankings_Cartoons.png)
+![Cartoon Rankings](/Images/Rankings_Cartoons.png)
 
 The below code scrapes the ranking/rating/titles of the top 100 animated movies on rotten tomatoes website.
 
@@ -227,7 +227,7 @@ views.py:
         context = {'top_movies': top_movies}
         return render(request, 'Cartoons/Cartoons_movies.html', context)
 ```
-![Movie Ranking](/Images/Rankings_Movies.png)
+![Movie Rankings](/Images/Rankings_Movies.png)
 
 ## Conclusion
 The Python live project provided me with my first opportunity to utilize project methodologies and gain a detailed understanding of version control. I worked with other students within an Agile framework environment on the Microsoft Azure DevOps platform. I was able to make commits, merges and push/pulls in real time while being aware of how to minimize merge conflicts. I participated in daily standup meetings to discuss progress and roadblocks as well as a retrospective meeting upon completion. I really enjoyed this process and look forward to utilizing everything learned from this sprint in future projects!
