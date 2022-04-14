@@ -70,9 +70,10 @@ views.py:
         context = {'item': item}
         return render(request, 'Cartoons/Cartoons_details.html', context)
 ```
-* Insert GIF of displaying cartoon list/details
+![List Details](/GIFs/list_details.gif)
+
 ## CRUD Functionality
-This view function saves the users new destination details to the database.
+This view function saves the users new cartoons details to the database.
 ```cs
     def CreateCartoon(request):
         form = CartoonForm(data=request.POST or None)
@@ -96,7 +97,7 @@ This view function allows the user to edit/update a cartoons details.
         context = {'item': item, 'form': form}
         return render(request, 'Cartoons/Cartoons_up_date.html', context)
 ```
-This view function enables a user to delete trips from database.
+This view function enables a user to delete cartoons from database.
 ```cs
     def DeleteItem(request, pk):
         context = {}
