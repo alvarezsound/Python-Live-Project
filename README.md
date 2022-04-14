@@ -147,16 +147,9 @@ views.py:
         else:
             return render(request, 'Cartoons/Cartoons_api.html')
 ```
-```cs
-    def DisplayDefinitions(request):
-        definition_list = Definition.Definitions.all().order_by("value")
-        context = {'definition_list': definition_list}
-        return render(request, 'Cartoons/Cartoons_definitions.html', context)
-```
-
 ![Dictionary](/Images/Dictionary.png)
 
-I then created a new object model class with a manager added to our models.py for saving words/definitions.
+I then created a new object model class with a manager to our models.py for saving words/definitions.
 
 models.py:
 ```cs
@@ -168,6 +161,15 @@ models.py:
 
         def __str__(self):
             return self.value
+```
+Finally, I added a views function for rendering all the words/definitions in the database.
+
+views.py:
+```cs
+    def DisplayDefinitions(request):
+        definition_list = Definition.Definitions.all().order_by("value")
+        context = {'definition_list': definition_list}
+        return render(request, 'Cartoons/Cartoons_definitions.html', context)
 ```
 
 ![Definitions](/Images/Definitions.png)
