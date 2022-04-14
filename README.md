@@ -10,7 +10,7 @@ After completing the Python course, I participated in a two week sprint. I was t
 - [Conclusion](#Conclusion)
 
 ## Creating the Basic App
-To start, I created a new application within the Django framework. I created base and home templates and then added function to the views in order for a homepage with a navbar to render. I then registered my URL's and linked my application to the main project home page. The majority of the styling and layout for this web application was done usings Bootstrap 4 with some modifications. I also added some basic animations using css/javascript.
+To start, I created a new application within the Django framework. I created base and home templates and then added function to the views in order for a homepage with a navbar to render. I then registered my URL's and linked my application to the main project home page. The majority of the styling and layout for this web application was done usings Bootstrap 4 with some modifications. I also added some basic animations using css and javascript.
 
 ![Home](/Images/Home.png)
 
