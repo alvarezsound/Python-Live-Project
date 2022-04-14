@@ -153,6 +153,9 @@ views.py:
         context = {'definition_list': definition_list}
         return render(request, 'Cartoons/Cartoons_definitions.html', context)
 ```
+
+![Dictionary](/Images/Dictionary.png)
+
 I then created a new object model class with a manager added to our models.py for saving words/definitions.
 
 models.py:
@@ -167,7 +170,7 @@ models.py:
             return self.value
 ```
 
-* Insert GIF/image for oxford dictionary/display
+![Definitions](/Images/Definitions.png)
 
 ## Beautiful Soup
 Using the Python package Beautiful Soup, I parsed data from two websites to display a top ten animated series list and a top 100 animated movies list  on  two newly created templates that can be accessed from the nav bar and home page.
@@ -197,7 +200,7 @@ views.py:
         context = {'top_cartoons': top_cartoons}
         return render(request, 'Cartoons/Cartoons_rankings.html', context)
 ```
-* Insert screenshot of page
+![Cartoon Ranking](/Images/Rankings_Cartoons.png)
 
 The below code scrapes the ranking/rating/titles of the top 100 animated movies on rotten tomatoes website.
 
@@ -222,7 +225,7 @@ views.py:
         context = {'top_movies': top_movies}
         return render(request, 'Cartoons/Cartoons_movies.html', context)
 ```
-* Insert screenshot of page
+![Movie Ranking](/Images/Rankings_Movies.png)
 
 ## Conclusion
 The Python live project provided me with my first opportunity to utilize project methodologies and gain a detailed understanding of version control. I worked with other students within an Agile framework environment on the Microsoft Azure DevOps platform. I was able to make commits, merges and push/pulls in real time while being aware of how to minimize merge conflicts. I participated in daily standup meetings to discuss progress and roadblocks as well as a retrospective meeting upon completion. I really enjoyed this process and look forward to utilizing everything learned from this sprint in future projects!
