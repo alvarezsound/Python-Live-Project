@@ -1,5 +1,5 @@
 # Python Live Project
-After completing the Python course, I participated in a two week sprint. I was tasked with using Python within the Django framework to create a dynamic web application. I chose cartoons as my topic and I built a destinations website that allows a user to create, review, update and delete information about their favorite cartoon series. I used several functions in the views in order to retrieve data and display them on the applicable HTML template. Additionally, I connected an API and wrote a basic JSON response that allows the user to search any word in the Oxford Dictionary and view it's definition. I also used Beautiful Soup to scrape/parse data from other sites to display on my site.
+After completing the Python course, I participated in a two week sprint. I was tasked with using Python within the Django framework to create a dynamic web application. I chose cartoons as my topic and I built a destinations website that allows a user to create, review, update, and delete information about their favorite cartoon series. I used several functions in the views in order to retrieve data and display them on the applicable HTML template. Additionally, I connected an API and wrote a basic JSON response that allows the user to search any word in the Oxford Dictionary and view it's definition. I also used the Python librarry Beautiful Soup to scrape/parse data from other sites to display on my site.
 
 ## Table of Contents
 - [Creating The Basic App](#Creating-The-Basic-App)
@@ -10,7 +10,7 @@ After completing the Python course, I participated in a two week sprint. I was t
 - [Conclusion](#Conclusion)
 
 ## Creating the Basic App
-To start, I created a new application within the Django framework. I created base and home templates and then added function to the views in order for a homepage with a navbar to render. I then registered my URL's and linked my application to the main project home page. The majority of the styling and layout for this web application was done usings Bootstrap 4 with some modifications. I also added some basic animations using css and javascript.
+To start, I created a new application within the Django framework using PyCharm as my IDE. I created base and home templates and then added function to the views in order for a homepage with a navbar to render. I then registered my URL's and linked my application to the main project home page. The majority of the styling and layout for this web application was done usings Bootstrap 4 with some modifications. I also added some basic animations using css and javascript.
 
 ![Home](/Images/Home.png)
 
@@ -55,7 +55,7 @@ forms.py:
             model = Cartoon
             fields = "__all__"
 ```
-I made a template page for the form and then created a views function that renders all cartoons in the database. This page only displays the title and premier date of the cartoon in the database. I created another view function that allows User's to click on a cartoon's title to bring them to another page that displays the additional details of that cartoon.
+I made a template page for the form and then created a views function that renders all cartoons in the database. This page only displays the title and premier date of the cartoon in the database. I created another view function that allows User's to click on a cartoon's title to bring them to another template that displays the additional details of that cartoon.
 
 views.py:
 ```cs
@@ -73,7 +73,7 @@ views.py:
 ![List Details](/GIFs/list_details.gif)
 
 ## CRUD Functionality
-This view function saves the users new cartoons details to the database.
+This view function saves the cartoons details to the database that the user inputs into the form.
 ```cs
     def CreateCartoon(request):
         form = CartoonForm(data=request.POST or None)
@@ -112,7 +112,7 @@ This view function enables a user to delete cartoons from database.
 ![Create Update Delete](/GIFs/create_update_delete.gif)
 
 ## Connect to API
-I created a new API template and rendered it with a view function. I then researched API documentation in order to connect the API and write a basic JSON response that allows users to search a word in the Oxford Dictionary and view it's definition. I added additional functionality that saves each word and definiton that was searched into the database. I then created a new  template for displaying the previously searched words/definitions.
+I created a new API template and rendered it with a view function. I then researched API documentation in order to connect the API and write a basic JSON response that allows users to search a word in the Oxford Dictionary and view it's definition. I added additional functionality that saves each word and definiton that was searched into a database. I then created a new template for displaying the previously searched words/definitions.
 
 views.py:
 ```cs
@@ -232,4 +232,4 @@ views.py:
 ![Movie Rankings](/Images/Rankings_Movies.png)
 
 ## Conclusion
-The Python live project provided me with my first opportunity to utilize project methodologies and gain a detailed understanding of version control. I worked with other students within an Agile framework environment on the Microsoft Azure DevOps platform. I was able to make commits, merges and push/pulls in real time while being aware of how to minimize merge conflicts. I participated in daily standup meetings to discuss progress and roadblocks as well as a retrospective meeting upon completion. I really enjoyed this process and look forward to utilizing everything learned from this sprint in future projects!
+The Python live project provided me with my first full-scale opportunity to utilize project methodologies and gain a detailed understanding of version control. I worked with other students within an Agile framework environment on the Microsoft Azure DevOps platform. I was able to make commits, merges, and push/pulls in real time while being aware of how to minimize merge conflicts. I participated in daily standup meetings to discuss progress and roadblocks as well as a retrospective meeting upon completion of the app. I really enjoyed this process and look forward to utilizing everything learned from this sprint in future projects!
