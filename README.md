@@ -112,7 +112,7 @@ This view function enables a user to delete cartoons from database.
 ![Create Update Delete](/GIFs/create_update_delete.gif)
 
 ## Connect to API
-I created a new API template and rendered it with a view function. I then researched API documentation in order to connect the API and write a basic JSON response that allows users to search a word in the Oxford Dictionary and view it's definition. I added additional functionality that saves each word and definiton that was searched into a database. I then created a new template for displaying the previously searched words/definitions. As an additional feature, I added a input in the  navbar that allows users to utilize the dictionary API. After entering a word and clicking search, they are redirected to the API template and the word that was searched and corresponding definition are displayed.
+I created a new API template and rendered it with a view function. I then researched API documentation in order to connect the API and write a basic JSON response that allows users to search a word in the Oxford Dictionary and view it's definition. I added additional functionality that saves each word and definiton that was searched into a database. I then created a new template for displaying the previously searched words/definitions. As an additional feature, I added an input in the  navbar that allows users to utilize the dictionary API. After entering a word and clicking search, they are redirected to the API template and the word that was searched and corresponding definition are displayed.
 
 views.py:
 ```cs
