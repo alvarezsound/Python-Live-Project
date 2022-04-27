@@ -1,5 +1,5 @@
 # Python Live Project
-After completing the Python course, I participated in a two week sprint. I was tasked with using Python within the Django framework to create a dynamic web application. I chose cartoons as my topic and I built a destinations website that allows a user to create, review, update, and delete information about their favorite cartoon series. I used several functions in the views in order to retrieve data and display them on the applicable HTML template. Additionally, I connected an API and wrote a basic JSON response that allows the user to search any word in the Oxford Dictionary and view it's definition. I also used the Python library Beautiful Soup to scrape/parse data from other sites to display on my site.
+After completing the Python course, I participated in a two-week sprint. I was tasked with using Python within the Django framework to create a dynamic web application. I chose cartoons as my topic and built a destinations website that allows a user to create, review, update, and delete information about their favorite cartoon series. I used several functions in the views in order to retrieve data and display them on the applicable HTML template. Additionally, I connected an API and wrote a basic JSON response, which allows the user to search any word in the Oxford Dictionary and view its definition. I also used the Python library Beautiful Soup to scrape/parse data from other sites to display on my site.
 
 ## Table of Contents
 - [Creating The Basic App](#Creating-The-Basic-App)
@@ -10,12 +10,12 @@ After completing the Python course, I participated in a two week sprint. I was t
 - [Conclusion](#Conclusion)
 
 ## Creating the Basic App
-To start, I created a new application within the Django framework using PyCharm as my IDE. I created base and home templates and then added function to the views in order for a homepage with a navbar to render. I then registered my URL's and linked my application to the main project home page. The majority of the styling and layout for this web application was done usings Bootstrap 4 with some modifications. I also added some basic animations using css and javascript.
+To start, I created a new application within the Django framework using PyCharm as my IDE. I created the base and home templates and then added functions to the views in order for a homepage with a navbar to render. I then registered my URLs and linked my application to the main project homepage. Most of the styling and layout for this web application was done using Bootstrap 4 with some modifications. I also added some basic animations using CSS and JavaScript.
 
 ![Home](/Images/Home.png)
 
 ## Creating the Model and Form
-I created an object model class with a manager and defined it's attributes.
+I created an object model class with a manager and defined its attributes.
 
 models.py:
 ```cs
@@ -42,7 +42,7 @@ models.py:
         def __str__(self):
             return self.title
 ```
-I then created a model form that includes any inputs the user needs to make. 
+Next, I created a model form that includes any inputs the user needs to make. 
 
 forms.py:
 ```cs
@@ -55,7 +55,7 @@ forms.py:
             model = Cartoon
             fields = "__all__"
 ```
-I made a template page for the form and then created a views function that renders all cartoons in the database. This page only displays the title and premier date of the cartoon in the database. I created another view function that allows User's to click on a cartoon's title to bring them to another template that displays the additional details of that cartoon.
+I then made a template page for the form, as well as a view function that renders all cartoons in the database. This page only displays the title and premiere date of the cartoon in the database, so I created another view function that allows users to click on a cartoon's title, bringing them to another template that displays the additional details of that cartoon.
 
 views.py:
 ```cs
@@ -73,7 +73,7 @@ views.py:
 ![List Details](/GIFs/list_details.gif)
 
 ## CRUD Functionality
-This view function saves the cartoons details to the database that the user inputs into the form.
+This view function saves the details of the cartoon to the database that the user inputs into the form.
 ```cs
     def CreateCartoon(request):
         form = CartoonForm(data=request.POST or None)
@@ -84,7 +84,7 @@ This view function saves the cartoons details to the database that the user inpu
         context = {'form': form}
         return render(request, "Cartoons/Cartoons_create.html", context)
 ```
-This view function allows the user to edit/update a cartoons details.
+This view function allows the user to edit/update a cartoon's details.
 ```cs
     def UpdateItem(request, pk):
         item = Cartoon.Cartoons.get(pk=pk)
@@ -97,7 +97,7 @@ This view function allows the user to edit/update a cartoons details.
         context = {'item': item, 'form': form}
         return render(request, 'Cartoons/Cartoons_up_date.html', context)
 ```
-This view function enables a user to delete cartoons from database.
+This view function enables a user to delete cartoons from the database.
 ```cs
     def DeleteItem(request, pk):
         context = {}
@@ -112,7 +112,7 @@ This view function enables a user to delete cartoons from database.
 ![Create Update Delete](/GIFs/create_update_delete.gif)
 
 ## Connect to API
-I created a new API template and rendered it with a view function. I then researched API documentation in order to connect the API and write a basic JSON response that allows users to search a word in the Oxford Dictionary and view it's definition. I added additional functionality that saves each word and definiton that was searched into a database. I then created a new template for displaying the previously searched words/definitions. As an additional feature, I added an input in the  navbar that allows users to utilize the dictionary API. After entering a word and clicking search, they are redirected to the API template and the word that was searched and corresponding definition are displayed.
+After creating a new API template, I rendered it with a view function. I then researched API documentation in order to connect the API and write a basic JSON response that allows users to search a word in the Oxford Dictionary and view its definition. I included additional functionality that saves each word and definition that was searched into a database. Next, I created a new template for displaying the previously searched words/definitions. As an extra feature, I added an input in the navbar that allows users to utilize the dictionary API. After entering a word and clicking search, they are redirected to the API template where the word that was searched and its corresponding definition are displayed.
 
 views.py:
 ```cs
@@ -164,7 +164,7 @@ models.py:
         def __str__(self):
             return self.value
 ```
-Finally, I added a views function for rendering all the words/definitions in the database.
+Finally, I added a view function for rendering all the words/definitions in the database.
 
 views.py:
 ```cs
@@ -177,11 +177,9 @@ views.py:
 ![Definitions](/Images/Definitions.png)
 
 ## Beautiful Soup
-Using the Python package Beautiful Soup, I parsed data from two websites to display a top ten animated series list and a top 100 animated movies list  on  two newly created templates that can be accessed from the nav bar and home page.
+Using the Python package Beautiful Soup, I parsed data from two websites to display a top ten animated series list and a top 100 animated movies list on two newly created templates that can be accessed from both the navbar and homepage.
 
-The below code scrapes the number and titles of the cartoons from indiewires website where they are ranking the best 
-animated series of all time. There are over 60 cartoons in the list and about 10 are displayed per page. I selected the 
-specific page that named the top 10 cartoons. The titles were all under "h3" tags in the html code.
+The following code scrapes the number and titles of the cartoons from Indiewire’s website where they have ranked the best animated series of all time. There are over 60 cartoons on the list and about ten are displayed per page, so I selected the specific page that named the top ten cartoons. The titles are all under "h3" tags in the HTML code.
 
 views.py:
 ```cs
@@ -206,7 +204,7 @@ views.py:
 ```
 ![Cartoon Rankings](/Images/Rankings_Cartoons.png)
 
-The below code scrapes the ranking/rating/titles of the top 100 animated movies on rotten tomatoes website.
+Furthermore, the code below scrapes the ranking/rating/titles of the top 100 animated movies on the Rotten Tomatoes website.
 
 views.py:
 ```cs
@@ -232,4 +230,4 @@ views.py:
 ![Movie Rankings](/Images/Rankings_Movies.png)
 
 ## Conclusion
-The Python live project provided me with my first full-scale opportunity to utilize project methodologies and gain a detailed understanding of version control. I worked with other students within an Agile framework environment on the Microsoft Azure DevOps platform. I was able to make commits, merges, and push/pulls in real time while being aware of how to minimize merge conflicts. I participated in daily standup meetings to discuss progress and roadblocks as well as a retrospective meeting upon completion of the app. I really enjoyed this process and look forward to utilizing everything learned from this sprint in future projects!
+The Python live project provided me with my first full-scale opportunity to utilize project methodologies and gain a detailed understanding of version control. I worked with other students within an Agile framework environment on the Microsoft Azure DevOps platform. I was able to make commits, merges, and push/pulls in real-time while being aware of how to minimize merge conflicts. I participated in daily standup meetings to discuss progress and roadblocks, as well as a retrospective meeting upon completion of the app. I really enjoyed this process and look forward to utilizing everything learned from this sprint in future projects!
