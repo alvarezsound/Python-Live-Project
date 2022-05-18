@@ -70,7 +70,7 @@ views.py:
         context = {'item': item}
         return render(request, 'Cartoons/Cartoons_details.html', context)
 ```
-![List Details](/GIFs/list_details.gif)
+![List Details](/GIFs/ListDetails.gif)
 
 ## CRUD Functionality
 This view function saves the details of the cartoon to the database that the user inputs into the form.
@@ -109,7 +109,7 @@ This view function enables a user to delete cartoons from the database.
 
         return render(request, "Cartoons/Cartoons_delete.html", context)
 ```
-![Create Update Delete](/GIFs/create_update_delete.gif)
+![Create Update Delete](/GIFs/CreateUpdateDelete.gif)
 
 ## Connect to API
 After creating a new API template, I rendered it with a view function. I then researched API documentation in order to connect the API and write a basic JSON response that allows users to search a word in the Oxford Dictionary and view its definition. I included additional functionality that saves each word and definition that was searched into a database. Next, I created a new template for displaying the previously searched words/definitions. As an extra feature, I added an input in the navbar that allows users to utilize the dictionary API. After entering a word and clicking search, they are redirected to the API template where the word that was searched and its corresponding definition are displayed.
